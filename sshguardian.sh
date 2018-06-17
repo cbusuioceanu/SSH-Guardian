@@ -38,6 +38,18 @@ sshport=":2666"
 ###
 
 ###
+if [[ $(ps aux | grep cron- | grep -v grep | awk '{print $2}' | wc -l) == 0 ]]; then
+
+echo "Starting script..."
+else
+	if [[ ! $(ps aux | grep cron- | grep -v grep | awk '{print $2}' | wc -l) == 2 ]]; then
+		echo "Script already running!" > /dev/null
+		exit 0
+	fi
+fi
+###
+
+###
 if [[ ! -e $emailsrvdetails ]]; then
 
 echo -e "\\nNo mailing.server details found..."
@@ -74,18 +86,6 @@ else
 		echo -e "\\nmailing.server details found..." > /dev/null
 		echo "No need to write them again..." > /dev/null
 		echo -e "Using details located @ $emailsrvdetails" > /dev/null
-	fi
-fi
-###
-
-###
-if [[ $(ps aux | grep cron- | grep -v grep | awk '{print $2}' | wc -l) == 0 ]]; then
-
-echo "Starting script..."
-else
-	if [[ ! $(ps aux | grep cron- | grep -v grep | awk '{print $2}' | wc -l) == 2 ]]; then
-		echo "Script already running!" > /dev/null
-		exit 0
 	fi
 fi
 ###
