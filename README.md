@@ -1,4 +1,4 @@
-# SSH-Guardian
+# SSH-Guardian [![Build Status](https://travis-ci.org/cbusuioceanu/SSH-Guardian.svg?branch=master)](https://travis-ci.org/cbusuioceanu/SSH-Guardian)
 Similar to Fail2Ban but much effective in case your SSH password was compromised
 
 #### 1. git clone https://github.com/cbusuioceanu/SSH-Guardian.git
